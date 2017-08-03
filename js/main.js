@@ -28,9 +28,10 @@ window.addEventListener('load', function () {
     [].forEach.call(playButtons, function (btn) {
       btn.addEventListener('click', function(event) {
         event.preventDefault();
+		var href = this.href;
         video.classList.add('video_visible');
         setTimeout(function() {
-          videoPlayer.setAttribute('src', event.target.getAttribute('href'));
+          videoPlayer.setAttribute('src', href);
           videoPlayer.play();
         }, 1000);
       });
