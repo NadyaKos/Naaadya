@@ -1,150 +1,443 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Блог VEON</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/fonts.css">
-    <script src="./js/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    <meta name="description" content="Будь всегда на связи с друзьями, родными и близкими бесплатно! Теперь не только для абонентов Билайн!" />
+    <meta name="keywords" content="Veon, веон, мессенджер, чат, видео, фильмы, скидки, купоны, новости, мой билайн" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>VEON</title>
+    <link rel="shortcut icon" href="./img/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="./img/v-57.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./img/v-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./img/v-72.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./img/v-144.png">
+    <link href="./vendor/css/animate.css" rel="stylesheet">
+    <link href="./veon.css" rel="stylesheet">
+    <script src="./vendor/js/jquery-3.2.1.min.js"></script>
+    <script src="./vendor/js/device.min.js"></script>
+    <script src="./vendor/js/smoothscroll.js"></script>
+    <script src="./vendor/js/inputmask.dependencyLib.min.js"></script>
+    <script src="./vendor/js/inputmask.min.js"></script>
+    <script src="./vendor/js/inputmask.extensions.min.js"></script>
+    <script src="./vendor/js/inputmask.phone.extensions.min.js"></script>
 </head>
 
-<body>
-    <header class="header">
-        <div class="header__background">
-            <div class="content header__content">
-                <div class="header__logo"></div>
-                <div class="header__link">
-                    <a class="header__link-content" href="https://vzs54.app.goo.gl/?link=http://veon.ru&apn=com.veon.veon.russia&isi=1254022864&ibi=com.veon.veon.russia&utm_campaign=veonlaunch&utm_medium=blog&utm_source=veon.ru/blog"
-                        target="_blank">Скачать</a>
+<!-- Page hiding snippet (recommended)  -->
+<style>
+    .async-hide {
+        opacity: 0 !important
+    }
+</style>
+<script>
+    (function (a, s, y, n, c, h, i, d, e) {
+        s.className += ' ' + y;
+        h.start = 1 * new Date;
+        h.end = i = function () {
+            s.className = s.className.replace(RegExp(' ?' + y), '')
+        };
+        (a[n] = a[n] || []).hide = h;
+        setTimeout(function () {
+            i();
+            h.end = null
+        }, c);
+        h.timeout = c;
+    })(window, document.documentElement, 'async-hide', 'dataLayer', 4000, {
+        'GTM-W4HGLJ5': true
+    });
+</script>
+<!-- Modified Analytics tracking code with Optimize plugin -->
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-100222469-2', 'auto');
+    ga('require', 'GTM-W4HGLJ5');
+</script>
+<!-- Google Tag Manager -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KX5TLDL" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KX5TLDL');
+</script>
+<!-- End Google Tag Manager -->
+
+<body style="z-index:0;">
+
+    <div id="videoPopUp" class="video-popup">
+        <div id="videoPlayer" class="video-popup__wrapper">
+            <div id="closeButton" class="video-popup__close">✕</div>
+            <video id="videoContent" class="video-popup__content">
+                <source src="http://static.beeline.ru/upload/images/veon_video/VEON_720.mp4" type="video/mp4" />
+            </video>
+        </div>
+    </div>
+
+    <div id="section_1" class="section section_white start" style="z-index:10">
+        <div class="start__h1_relative">
+            <div class="start__veon">
+                <div class="start_h1_wrapper">
+                    <div id="start_h1_up" class="start__h1_absolute_up">Можно всё</div>
+                    <div id="start_h1_down" class="start__h1_absolute_down">бесплатно</div>
+                </div>
+                <img src="./img/screen1.png" alt="">
+            </div>
+            <div class="isMobile">
+                <div class="store-buttons store-buttons_download">
+                    <a href="https://itunes.apple.com/ru/app/veon-%D1%80%D0%BE%D1%81%D1%81%D0%B8%D1%8F/id1254022864?ls=1&mt=8" class="store-buttons__link store-buttons__link_apple store-buttons__link_mobile"
+                       target="_blank"></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.veon.veon.russia" class="store-buttons__link store-buttons__link_google store-buttons__link_mobile"
+                       target="_blank"></a>
                 </div>
             </div>
         </div>
-    </header>
-    <section class="page">
-        <h1 class="page__header">Блог VEON</h1>
-        <article class="blog-post">
-            <div class="blog-post__date">
-                01.08.2017
-            </div>
-            <div class="blog-post__image-wrapper">
-               <a href="http://static.beeline.ru/upload/images/veon_video/VEONinRussia.mp4" target="_blank" class="play-button"><img class="blog-post__image" src="./img/4_640x252.jpg" alt="VEON"></a>
-            </div>
-            </div>
-            <div class="blog-post__header">
-                Вспоминаем яркие моменты презентации с запуска VEON в России
-            </div>
-            
-            <div class="blog-post__social"></div>
-        </article>
-        <article class="blog-post">
-            <div class="blog-post__date">
-                26.07.2017
-            </div>
-            <div class="blog-post__image-wrapper">
-              <a href="http://static.beeline.ru/upload/images/veon_video/VEON__PPF.mp4" target="_blank" class="play-button"><img class="blog-post__image" src="./img/2_640x252.jpg" alt="VEON"></a>
-            </div>
-            </div>
-            <div class="blog-post__header">
-                VEON ─ ключ к фестивалям актуальной музыки и искусства Петербурга и Москвы
-            </div>
-            <div class="blog-post__content">
-                ПАО «ВымпелКом» (бренд «Билайн») выступает генеральным партнером крупных событий в мире актуальной музыки и искусства двух столиц – фестиваля Present Perfect в Санкт-Петербурге и выставки FACES&LACES в Москве. Благодаря платформе VEON гости мероприятий не упустят ни одного момента программы, займут места с лучшим видом на главные сцены и получат дополнительные яркие впечатления и бонусы.
-                <span class="blog-post__cut-content blog-post__cut-content_invisible">
-                   <br><br>«Фестивали стали той формой коммуникаций, которая объединяет тысячи людей со схожими интересами в едином пространстве. Вместе с тем, каждый приходит на фестиваль за чем-то своим ─ услышать любимого исполнителя или увидеть работы художника, не отстать от трендов или просто отдохнуть. Так VEON объединяет пользователей с их потребностью в общении, при этом способен учитывать вкусы и предпочтения каждого. Мы рады представить VEON на этих близких по духу событиях как информационный канал и ключ к привилегиям для гостей», ─ говорит Джордж Хелд, вице-президент по развитию цифрового и нового бизнеса ПАО «ВымпелКом» (бренд «Билайн»).<br>
-                   <br>Международный фестиваль электронной музыки и современного искусства Present Perfect пройдет в Санкт-Петербурге с 28 по 30 июля. Программа включает концерт-открытие, образовательные сессии и главное событие ─ 20-ти часовое выступление более 40 электронных музыкантов со всего мира в Музее стрит-арта. Пространство VEON SPACE в центре событий создано для идеального отдыха на фестивале: лучший вид на главную сцену с террасы второго этажа, магазин со всем необходимым в ходе музыкального марафона, зарядные станции для смартфонов и капсульный отель, в котором можно будет отдохнуть между сетами. На фестивале также разместится кинотеатр под открытым небом, организованный совместно с командой BEAT FILM FESTIVAL – лучшей в области документального кино о новой культуре. Смотреть кино в VEON CINEMA можно будет в уютных вигвамах, снабженных беспроводными наушниками. А участникам скейтерского контеста в рамках фестиваля предстоит соревноваться в специальной дисциплине VEON.<br>
-                   <br>Полная информация о происходящем на Present Perfect будет доступна в именном канале фестиваля в приложении VEON. Здесь же все неравнодушные к электронной музыке найдут онлайн-трансляцию образовательных сессий, которые состоятся накануне, 28 июля, с участием профессионалов мировой и российской индустрии.<br>
-                   <br>Выставка FACES&LACES пройдет в Москве с 12 по 13 августа и займет все свободные пространства Парка Горького. На масштабных конструкциях галереи VEON посетители увидят работы актуальных граффити райтеров и представителей альтернативного современного искусства, а музыкальная часть в этом году обещает быть одной из самых важных составляющих мероприятия.<br>
-                   <br>Подписавшись на канал FACES&LACES в VEON, посетители смогут быть в курсе всех событий художественной и музыкальной программы. Для пользователей приложения предусмотрены: лучший вид на главную сцену с открытых террас VEON, зоны, объединяющие искусство и технологии, яркие сувениры и самая актуальная информация о выставке в режиме онлайн.<br>
-                   <br>Платформа VEON позволяет звонить, писать сообщения, обмениваться фото и видео, быть в курсе всех интересных событий, получать бесплатный легальный контент, подобранный под интересы пользователя, а также специальные предложения – уникальные скидки и бонусы от популярных брендов. Для клиентов «Билайн» в приложении доступны функции личного кабинета, а трафик внутри приложения не тарифицируется. Приложение можно скачать бесплатно в App Store и Google Play.<br>
-                   <br><a href="http://static.beeline.ru/upload/images/veon_video/VEON__PPF.mp4" target="_blank" class="play-button">Смотреть видео</a>
-                </span>
-            </div>
-            <div class="blog-post__cut-description">
-                <span class="blog-post__cut-link">Читать далее<span>
-            </div>
-            <div class="blog-post__social"></div>
-        </article>
-        <article class="blog-post">
-            <div class="blog-post__date">
-                20.07.2017
-            </div>
-            <div class="blog-post__image-wrapper">
-                <img class="blog-post__image" src="./img/3_640x252.jpg" alt="VEON">
-            </div>
-            </div>
-            <div class="blog-post__header">
-                VEON делает интернет удобным. Теперь и в App Store!
-            </div>
-            <div class="blog-post__content">
-                Платформа для общения, развлечений и всего, что вы любите делать в интернете теперь доступна для iOS.
-                <span class="blog-post__cut-content blog-post__cut-content_invisible">
-                    <br><br>Группа компаний VEON Ltd., работающая в России под брендом «Билайн», открывает VEON для пользователей iOS. VEON объединяет в себе функции мультимедиа-сервиса, платформы для общения и маркетплейса с партнерскими предложениями, акциями и скидками. Пользователям VEON будет доступен развлекательно-новостной контент, а также товары и услуги, которые будут максимально соответствовать их интересам благодаря предиктивной модели, построенной на основе поведения пользователей VEON в приложении. <br>
-                    <br>VEON стал доступен всем владельцам смартфонов на Android 19 июля, а сегодня, 20 июля у обладателей iPhone появилась возможность скачать VEON. Для клиентов «Билайн» весь трафик внутри VEON не тарифицируется. <br>
-                    <br>Приложение VEON уже доступно для бесплатного скачивания в App Store и Google Play. За установку VEON пользователи дополнительно получат эксклюзивные предложения и скидки от российских партнеров VEON.
-                </span>
-            </div>
-            <div class="blog-post__cut-description">
-                <span class="blog-post__cut-link">Читать далее<span>
-            </div>
-            <div class="blog-post__social"></div>
-        </article>
-         <article class="blog-post">
-            <div class="blog-post__date">
-                19.07.2017
-            </div>
-            <div class="blog-post__image-wrapper">
-                <img class="blog-post__image" src="./img/blog-image.jpg" alt="VEON">
-            </div>
-            </div>
-            <div class="blog-post__header">
-                VEON делает интернет удобным. Уже в Google Play и скоро в App Store!
-            </div>
-            <div class="blog-post__content">
-                «Билайн» представляет россиянам VEON, платформу для общения, развлечений и всего, что вы любите делать в интернете
-                <span class="blog-post__cut-content blog-post__cut-content_invisible">
-                   <br><br>19 июля 2017 года, Москва. Группа компаний VEON Ltd., работающая в России под брендом «Билайн», представляет VEON, который объединяет в себе функции мультимедиа-сервиса, платформы для общения и маркетплейса с партнерскими предложениями, акциями и скидками. Пользователям VEON будет доступен развлекательно-новостной контент, а также товары и услуги, которые будут максимально соответствовать их интересам благодаря предиктивной модели, построенной на основе поведения пользователей VEON в приложении. VEON доступен всем владельцам смартфонов на Android и будет доступен на iOS в России, а для клиентов «Билайна» весь трафик внутри VEON не тарифицируется.<br>
-                   <br>«VEON - это платформа, сочетающая в себе удобство телекоммуникационных услуг и многообразие развлечений и общения в мире digital. Это очередной шаг в развитии концепции мобильности, уже сегодня открывающий россиянам новый пользовательский опыт в Интернете. При этом, как и любая другая цифровая платформа, VEON будет непрерывно развиваться, становиться еще лучше, проще и удобнее для каждого своего пользователя», - отметил Шелль Мортен Йонсен, Генеральный директор ПАО «ВымпелКом».<br>
-                   <br>Приложение VEON уже доступно для бесплатного скачивания в Google Play и скоро появится в App Store. За установку VEON пользователи дополнительно получат эксклюзивные предложения и скидки от российских партнеров VEON.<br>
-                   <br>VEON работает на основе единой уникальной онлайн-платформы, разработанной телекоммуникационно-технологической компанией VEON Ltd. (ранее Vimpelcom Ltd.). Для российских пользователей наполнение и отдельные функции платформы создавались на территории России с учетом предпочтений и ожиданий россиян, а также требований российского законодательства. Приложение будет доступно везде, где работают App Store и Google Play, для владельцев смартфонов на iOS и Android вне зависимости от сотового оператора.<br>
-                   <br>НОВОЕ КАЧЕСТВО ОБЩЕНИЯ<br>
-                   <br>VEON позволяет писать, звонить, обмениваться голосовыми сообщениями, отправлять друг другу фото и видео материалы, создавать групповые чаты и т.д. Для абонентов «Билайн» предусмотрены дополнительные преимущества: сообщения и звонки (VoIP), а также интернет-трафик внутри VEON не тарифицируются. Это актуально для абонентов всех тарифов «Билайн». Стоимость интернет-трафика приложения для абонентов других операторов зависит от условий их действующего тарифа.<br>
-                   <br>Специально для абонентов «Билайн» в приложении доступен Личный кабинет для управления услугами, возможности которого будут расширяться.<br>
-                   <br>СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ И УСЛУГИ<br>
-                   <br>Для пользователей VEON будут доступны специальные предложения, уникальные акции и скидки на товары и услуги. В числе первых партнеров приложения в России – интегрированный оператор, объединяющий в себе предложения компаний, специализирующихся на производстве и продаже самых разных услуг, начиная от модной одежды, современной электроники, книг, путешествий и многого другого. Мы стремимся сделать все, чтобы пользователь мог получать предложения от компаний: Lamoda, BurgerKing, Skyeng, Madrobots, а также контент от Rambler&Co. Cписок локальных партнёров в России будет дополняться вместе с развитием платформы. VEON также имеет несколько глобальных партнеров, таких как Deezer, MasterCard, Studio+, ряд продуктов и сервисов которых в будущем могут появится на территории всех стран запуска приложения, включая Россию.<br>
-                   <br>АКТУАЛЬНЫЙ КОНТЕНТ<br>
-                   <br>VEON уже включает в себя информационные каналы популярных интернет-изданий, а также каналы с видео и фото материалами, десятки специально отобранных фильмов, которые можно смотреть не выходя из приложения, а также доступ к контенту популярных телеканалов. В дальнейшем у пользователей появится возможность подписываться на актуальные для них события, уникальные информационные каналы селебрити и брендов. Благодаря заложенной в VEON предиктивной платформе контент внутри приложения может по желанию пользователя более точно подстраиваться под его ожидания и предпочтения. Список поставщиков и производителей контента регулярно обновляется и расширяется по мере развития приложения.<br>
-                   <br>ФИНАНСОВЫЕ СЕРВИСЫ<br>
-                   <br>В будущем в VEON также будет интегрирован онлайн-сервис Masterpass от Mastercard, что позволит привязать к VEON банковскую карту любого банка и быстро и удобно оплачивать покупки в интернет-магазинах, просто нажав кнопку «Оплата Masterpass».<br>
-                   <br>На протяжении первых 6 месяцев с момента привязки банковской карты в приложении и подключения «Автооплаты» абоненты «Билайн» будут получать cashback на свой лицевой счет «Билайн» в размере 10% от суммы пополнения счета.
-                </span>
-            </div>
-            <div class="blog-post__cut-description">
-                <span class="blog-post__cut-link">Читать далее<span>
-            </div>
-            <div class="blog-post__social"></div>
-        </article>
-    </section>
-    <footer class="footer">
-        <div class="content footer__content">
-            <div class="footer__logo"></div>
-            <div class="footer__block">
-                <p class="footer__text">VEON Digital Amsterdam BV</p>
-                <p class="footer__text">Все права защищены</p>
-                <p class="footer__text">2017</p>
+        <div class="isTablet">
+            <div class="feedback">
+                <div class="feedback__description">
+                    Получи ссылку на приложение в SMS
+                </div>
+                <form class="feedback-form">
+                    <input
+                        type="text"
+                        id="phone_number_1"
+                        class="text-input feedback-form__input light"
+                        name="number"
+                        placeholder="Номер телефона"
+                        autocomplete="off"
+                        data-inputmask="'alias':'phoneru'"
+                    >
+                    <button id="phone_number_1_button" class="button feedback-form__button" disabled>Отправить</button>
+                </form>
+                <div class="feedback-form__error-message" id="phone_number_1_error">
+                    Вы уже отправили 2 SMS. Лимит исчерпан.
+                </div>
             </div>
         </div>
-    </footer>
-    <section class="video" id="video">
-        <div class="video__player-wrapper">
-            <div class="video__close-button" id="video__close">✕</div>
-            <video class="video__player" id="video__player">
-                <source src="" type="video/mp4" />
-            </video>
+    </div>
+
+    <div id="section_2" class="section section_gray video-section">
+        <div class="background_lenta background_grey background_lenta_video" style="z-index:0;"></div>
+        <div class="background_video_img" style="z-index:1;"></div>
+        <div class="content page__content" style="z-index:2;">
+            <div id="playButton" class="play-button">СМОТРИ ВИДЕО</div>
         </div>
-    </section>
+    </div>
+
+    <div id="section_divider" class="isMobile"></div>
+
+    <div id="section_3" class="section section_white section_scrollable page">
+        <div class="content page__content">
+            <div class="page__phone page__phone_margin_left" style="z-index:20;">
+                <div class="isTablet">
+                    <img class="img-screen" src="./img/screen2.png" alt="">
+                </div>
+                <div class="isMobile">
+                    <img class="img-screen" src="./img/mobile_screen2.png" alt="">
+                </div>
+            </div>
+
+            <div class="page__info page__info_margin_right" style="z-index:20;">
+                <h2 class="page__h2">ВСЕГДА НА СВЯЗИ</h2>
+                <div class="page-content__info">
+                    <p>Личные и групповые чаты, звонки, запись аудио, крутые гифки и уникальные эмоджи</p>
+                </div>
+                <div class="store-buttons store-buttons_download isTablet">
+                    <a href="https://itunes.apple.com/ru/app/veon-%D1%80%D0%BE%D1%81%D1%81%D0%B8%D1%8F/id1254022864?ls=1&mt=8" class="store-buttons__link store-buttons__link_apple"
+                        target="_blank"></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.veon.veon.russia" class="store-buttons__link store-buttons__link_google"
+                        target="_blank"></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="section_4" class="section section_gray section_scrollable page">
+        <div class="content page__content">
+
+            <div class="page__info page__info_margin_left" style="z-index:40;">
+                <h2 class="page__h2">БУДЬ В КУРСЕ</h2>
+                <div class="page-content__info">
+                    <p>Анонсы, статьи и видео — весь контент подобран специально для тебя</p>
+                </div>
+
+                <div class="store-buttons store-buttons_download isTablet">
+                    <a href="https://itunes.apple.com/ru/app/veon-%D1%80%D0%BE%D1%81%D1%81%D0%B8%D1%8F/id1254022864?ls=1&mt=8" class="store-buttons__link store-buttons__link_apple"
+                        target="_blank"></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.veon.veon.russia" class="store-buttons__link store-buttons__link_google"
+                        target="_blank"></a>
+                </div>
+            </div>
+            <div class="page__phone" style="z-index:40;">
+                <div class="isTablet">
+                    <img class="img-screen" src="./img/screen12.png" alt="">
+                </div>
+                <div class="isMobile">
+                    <img class="img-screen" src="./img/mobile_screen12.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="section_5" class="section section_white section_scrollable page">
+        <div class="content page__content">
+            <div class="page__phone page__phone_margin_left" style="z-index:60;">
+                <div class="isTablet">
+                    <img class="img-screen" src="./img/screen10.png" alt="">
+                </div>
+                <div class="isMobile">
+                    <img class="img-screen" src="./img/mobile_screen10.png" alt="">
+                </div>
+            </div>
+            <div class="page__info page__info_margin_right" style="z-index:60;">
+                <h2 class="page__h2">ПОДАРКИ И СКИДКИ</h2>
+                <div class="page-content__info">
+                    <p>Каждый день новые предложения от твоих любимых брендов</p>
+                </div>
+
+                <div class="store-buttons store-buttons_download isTablet">
+                    <a href="https://itunes.apple.com/ru/app/veon-%D1%80%D0%BE%D1%81%D1%81%D0%B8%D1%8F/id1254022864?ls=1&mt=8" class="store-buttons__link store-buttons__link_apple"
+                        target="_blank"></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.veon.veon.russia" class="store-buttons__link store-buttons__link_google"
+                        target="_blank"></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="section_6" class="section section_gray section_scrollable page">
+        <div class="content page__content">
+            <div class="page__info page__info_margin_left" style="z-index:80;">
+                <h2 class="page__h2">СМОТРИ КИНО</h2>
+                <div class="page-content__info">
+                    <p>10 популярных фильмов в хорошем качестве, легально и бесплатно. Каждую неделю обновление</p>
+                </div>
+                <div class="store-buttons store-buttons_download isTablet">
+                    <a href="https://itunes.apple.com/ru/app/veon-%D1%80%D0%BE%D1%81%D1%81%D0%B8%D1%8F/id1254022864?ls=1&mt=8" class="store-buttons__link store-buttons__link_apple"
+                        target="_blank"></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.veon.veon.russia" class="store-buttons__link store-buttons__link_google"
+                        target="_blank"></a>
+                </div>
+            </div>
+            <div class="page__phone" style="z-index:80;">
+                <div class="isTablet">
+                    <img class="img-screen" src="./img/screen4.png" alt="">
+                </div>
+                <div class="isMobile">
+                    <img class="img-screen" src="./img/mobile_screen4.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="section_7" class="section section_white section_scrollable page">
+        <div class="content page__content">
+            <div class="page__phone page__phone_margin_left" style="z-index:90;">
+                <div class="isTablet">
+                    <img class="img-screen" src="./img/screen8.png" alt="">
+                </div>
+                <div class="isMobile">
+                    <img class="img-screen" src="./img/mobile_screen8.png" alt="">
+                </div>
+            </div>
+            <div class="page__info page__info_margin_right" style="z-index:90;">
+                <h2 class="page__h2">ВСЁ ПОД КОНТРОЛЕМ</h2>
+                <div class="page-content__info">
+                    <p>Проверяй баланс, получай кэшбэк 10% при подключении автооплаты</p>
+                    <!-- ИКОНКА БИЛАЙН -->
+                    <p class="isTablet">Совместно с «Билайн»</p>
+                </div>
+
+                <div class="store-buttons store-buttons_download isTablet">
+                    <a href="https://itunes.apple.com/ru/app/veon-%D1%80%D0%BE%D1%81%D1%81%D0%B8%D1%8F/id1254022864?ls=1&mt=8" class="store-buttons__link store-buttons__link_apple"
+                        target="_blank"></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.veon.veon.russia" class="store-buttons__link store-buttons__link_google"
+                        target="_blank"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="section_8" class="section download" style="z-index:100;">
+        <div class="content download__content">
+            <div class="download__info">
+                <h2 class="download__h2">Скачай<br class="isMobile"> прямо сейчас</h2>
+                <div class="isTablet">
+                    <div class="feedback">
+                        <div class="feedback__description ">
+                            Получи ссылку на приложение в SMS
+                        </div>
+                        <form class="feedback-form">
+                            <input
+                                type="text"
+                                id="phone_number_2"
+                                class="text-input feedback-form__input light"
+                                name="number"
+                                placeholder="Номер телефона"
+                                autocomplete="off"
+                                data-inputmask="'alias':'phoneru'"
+                            >
+                            <button id="phone_number_2_button" class="button feedback-form__button light" disabled>Отправить</button>
+                        </form>
+                        <div class="feedback-form__error-message" id="phone_number_2_error">
+                            Вы уже отправили 2 SMS. Лимит исчерпан.
+                        </div>
+                    </div>
+                </div>
+                <div class="store-buttons store-buttons_download isTablet">
+                    <a href="https://itunes.apple.com/ru/app/veon-%D1%80%D0%BE%D1%81%D1%81%D0%B8%D1%8F/id1254022864?ls=1&mt=8" class="store-buttons__link store-buttons__link_apple"
+                        target="_blank"></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.veon.veon.russia" class="store-buttons__link store-buttons__link_google"
+                        target="_blank"></a>
+                </div>
+            </div>
+            <div class="download__phone">
+                <div class="isMobile">
+                    <div class="store-buttons store-buttons_download">
+                        <a href="https://itunes.apple.com/ru/app/veon-%D1%80%D0%BE%D1%81%D1%81%D0%B8%D1%8F/id1254022864?ls=1&mt=8" class="store-buttons__link store-buttons__link_apple store-buttons__link_mobile"
+                            target="_blank"></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.veon.veon.russia" class="store-buttons__link store-buttons__link_google store-buttons__link_mobile"
+                            target="_blank"></a>
+                    </div>
+                </div>
+                <div class="isTablet">
+                    <img class="img-screen " src="./img/screen1.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="section_9" class="section faq" style="z-index:100;">
+        <div class="faq__wrapper">
+            <div class="faq__h2">УЗНАТЬ ПОДРОБНЕЕ</div>
+            <div class="faq-item">
+                <div class="faq-item__question">Что такое VEON?</div>
+                <div class="faq-item__answer">VEON — это новое приложение, с помощью которого вы можете звонить, писать сообщения, обмениваться фото и видео, слушать музыку и смотреть видеоролики, следить за новостями и читать популярные статьи. И всё это абсолютно бесплатно.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-item__question">Кто может использовать приложение VEON?</div>
+                <div class="faq-item__answer">Приложение VEON доступно для абонентов всех сотовых операторов и поддерживается на смартфонах с ОС Android (версия 4.1 и более поздние) или ОС iOS (версия 8 и более поздние). </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-item__question">И всё это бесплатно?</div>
+                <div class="faq-item__answer">Если вы абонент «Билайн», вы можете использовать все функции приложения бесплатно. Звонки, сообщения и трафик в Veon на территории России в сети Билайн не тарифицируются. Если вы используете приложение за пределами России, или у вас другой сотовый оператор, за передачу данных может взиматься плата.</div>
+            </div>
+             <div class="faq-item">
+                <div class="faq-item__question">Как скачать приложение VEON?</div>
+                <div class="faq-item__answer">Приложение VEON можно скачать бесплатно в магазинах Google Play и App Store. Для регистрации аккаунта вам будет отправлено SMS-сообщение — вы должны находиться в зоне действия сети вашего сотового оператора.</div>
+            </div>
+             <div class="faq-item">
+                <div class="faq-item__question">Какие функции есть у приложения VEON?</div>
+                <div class="faq-item__answer">С помощью приложения VEON вы можете звонить и отправлять сообщения родным и друзьям, которые используют приложение, слушать музыку и оставаться в курсе последних событий благодаря тематическим новостным каналам VEON. Если вы абонент «Билайн», вы также можете управлять вашим личным кабинетом в приложении.</div>
+            </div>
+             <div class="faq-item">
+                <div class="faq-item__question">Сколько места занимает приложение VEON?</div>
+                <div class="faq-item__answer">Примерно 128 мегабайт.</div>
+            </div> <div class="faq-item">
+                <div class="faq-item__question">Кому могу отправлять сообщения в приложении VEON?</div>
+                <div class="faq-item__answer">Вы можете общаться в чатах со всеми друзьями и знакомыми, которые уже используют приложение VEON. Создавайте групповые чаты и отправляйте голосовые сообщения, фото или видео. Чтобы отправить сообщение друзьям, которых ещё нет в приложении, пригласите их присоединиться к сообществу пользователей VEON.</div>
+            </div> <div class="faq-item">
+                <div class="faq-item__question">Как пригласить друзей в приложение VEON?</div>
+                <div class="faq-item__answer">Перейдите на вкладку «Контакты» и предложите друзьям скачать приложение VEON.</div>
+            </div> <div class="faq-item">
+                <div class="faq-item__question">Могу ли пользоваться приложением VEON во время путешествий?</div>
+                <div class="faq-item__answer">Конечно! Используйте VEON во время путешествий: при подключении к сети Wi-Fi плата за передачу данных не взимается. При использовании сетей 3G/4G будет взиматься плата согласно стоимости этой услуги в роуминге.</div>
+            </div> <div class="faq-item">
+                <div class="faq-item__question">Как управлять оставшимися на счёте средствами?</div>
+                <div class="faq-item__answer">Если вы абонент «Билайн», вы можете посмотреть доступные вам пакеты данных, минут и SMS-сообщений, а также изменить тариф и мгновенно пополнить счёт в меню «Аккаунт VEON». Аккаунты других сотовых операторов в приложение VEON добавить нельзя.</div>
+            </div> <div class="faq-item">
+                <div class="faq-item__question">Могу ли пополнять счёт с помощью аккаунта VEON?</div>
+                <div class="faq-item__answer">Если вы абонент »Билайн», вы можете пополнить любой счёт мобильного телефона с помощью приложения VEON. Если пополнение выполнено успешно, вы получите уведомление. Вы также можете сохранять способы оплаты, добавлять банковские карты и счета PayPal — это безопасно.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-item__question">Могу ли использовать приложение VEON на другом устройстве?</div>
+                <div class="faq-item__answer">Как только вы создадите аккаунт VEON, вы сможете использовать приложение на любом поддерживаемом устройстве. Обратите внимание: использовать один аккаунт приложения одновременно на нескольких устройствах нельзя. Как только вы войдёте в аккаунт на втором устройстве, выход из аккаунта на первом устройстве будет выполнен автоматически.</div>
+            </div>
+             <div class="faq-item">
+                <div class="faq-item__question">Номер телефона нужно подтверждать при каждом входе в приложение VEON?</div>
+                <div class="faq-item__answer">Если во время регистрации вы выбрали опцию «Входить автоматически» (для Android) или «Запомнить меня» (для iOS), подтверждать номер телефона больше не нужно.</div>
+            </div>  <div class="faq-item">
+                <div class="faq-item__question">Остались ещё вопросы?</div>
+                <div class="faq-item__answer">Напишите свой вопрос на <a class="faq-item__email-link" href="mailto:otvet@veon.ru">otvet@veon.ru</a></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="section_10" class="section info">
+        <div class="content info__content">
+            <div class="info__logo"></div>
+            <div class="info__block">
+                <p class="info__text">
+VEON Digital Amsterdam BV</p>
+                <p class="info__text">Все права защищены</p>
+                <p class="info__text">2017</p>
+            </div>
+        </div>
+        <div class="content info__legal">
+            <p>10% кешбек - Бонусы составляют 10% от суммы платежей по услуге «Автооплата» за календарный месяц, но не более 1000 бонусных руб/мес. Бонусы начисляются до 10 числа за предыдущий месяц. Бонусы расходуются в течение 30 дней на все местные и междугородные звонки, SMS, интернет или абон. плату по тарифам "Всё" и опциям "Хайвей" в том числе в поездках по России. 1 бонус = 1 руб. В международном роуминге бонусные средства расходоваться не будут. Проверить бонусный баланс: *107#. Бонус является скидкой на услуги связи и не может быть возмещен в денежном эквиваленте. Срок действия акции – 6 месяцев.</p>
+        </div> 
+    </div>
+
+    <script src="./veon.js"></script>
+    <script>
+        function p (data){
+            console.log(data);
+        }
+
+        function getSearchParameters() {
+            var prmstr = window.location.search.substr(1);
+            return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
+        }
+
+        function transformToAssocArray( prmstr ) {
+            var params = {};
+            var prmarr = prmstr.split("&");
+            for ( var i = 0; i < prmarr.length; i++) {
+                var tmparr = prmarr[i].split("=");
+                params[tmparr[0]] = tmparr[1];
+            }
+            return params;
+        }
+
+        var params = getSearchParameters();
+
+        if(params.campaign_id !== undefined){
+
+            $.ajax({
+                type: "POST",
+                url: "https://share.flocktory.com/exchange/accept_campaign?campaign_id="+params.campaign_id+"&email=xname%40flocktory.ru&ssid=2323",
+                success: function(data){
+                    if(data.url !== undefined ){
+                        window.location =  data.url;
+                    }
+
+                }
+            });
+        }
+
+    </script>
 </body>
 
 </html>
